@@ -33,7 +33,7 @@ public class DragonFight {
 		String kickoryell = JOptionPane.showInputDialog("Do you want to kick or yell at the dragon?");
 		// 9. If they typed in "yell":
 		if(kickoryell.equals("Yell") || kickoryell.equals("yell")) {
-			dragonhealth = dragonhealth - 100;
+			dragonhealth = dragonhealth - (new Random().nextInt(10) + 10);
 			JOptionPane.showMessageDialog(null, "You did 10 damage!" + " The dragons health is now at " + dragonhealth);
 			if(dragonhealth == 0) {
 				JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and now have furtunes for life!");
