@@ -32,15 +32,39 @@ public class DragonFight {
 		// 8. Ask the player in a pop-up if they want to attack the dragon with a yell or a kick
 		String kickoryell = JOptionPane.showInputDialog("Do you want to kick or yell at the dragon?");
 		// 9. If they typed in "yell":
+		int randomdamage;
+		randomdamage = (new Random().nextInt(10) + 10);
 		if(kickoryell.equals("Yell") || kickoryell.equals("yell")) {
-			dragonhealth = dragonhealth - (new Random().nextInt(10) + 10);
-			JOptionPane.showMessageDialog(null, "You did 10 damage!" + " The dragons health is now at " + dragonhealth);
-			if(dragonhealth == 0) {
-				JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and now have furtunes for life!");
+			dragonhealth = dragonhealth - randomdamage;
+			JOptionPane.showMessageDialog(null, "You did " + randomdamage + " damage!" + " The dragons health is now at " + dragonhealth);
+			if(dragonhealth <= 0) {
+				int droprate;
+				droprate = new Random().nextInt(10);
+				if(droprate == 0) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained a legendary item!");
+				}
+				if(droprate == 1) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained 1 scale(s)!");
+				}
+				if(droprate == 2) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained a treasure chest!");
+				}
+				if(droprate == 3) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained 3 scale(s)!");
+				}
+				if(droprate == 4) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained 2 scale(s)!");
+				}
+				if(droprate > 5) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained 500 Gold!");
+				}
+				if(droprate == 5) {
+					JOptionPane.showMessageDialog(null, "Congraulations! You have defeated the dragon and gained Nothing...");
+				}
 			}
 		}
 			//-- Find a random number between 0 and 10 and store it in dragonDamage
-			
+			new Random().nextInt(10);
 			//-- Subtract that number from the dragon's health variable 
 			
 		// 10. If they typed in "kick":
